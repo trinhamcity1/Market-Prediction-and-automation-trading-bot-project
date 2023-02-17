@@ -9,6 +9,6 @@
 
 ## Getting started:
 
--- Research financial data sources and APIs, and choose ones that fit your project's needs.
--- Use Python libraries such as Pandas, NumPy, and Scikit-learn to pre-process the data.
--- Use SQL to store the pre-processed data in a database.
+- Research financial data sources and APIs, and choose ones that fit your project's needs.
+- Use Python libraries such as Pandas, NumPy, and Scikit-learn to pre-process the data.
+- Use SQL to store the pre-processed data in a database.
