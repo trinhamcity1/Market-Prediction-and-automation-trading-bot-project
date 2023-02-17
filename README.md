@@ -7,25 +7,37 @@ Once the prediction is presented, the system will automatically give the users o
 
 # Features
 Collecting and processing historical stock market data
+
 Training a machine learning model to predict market trends
+
 Implementing an automated trading strategy based on predicted trends
+
 Logging and analyzing trading results to refine the model and strategy
 
 # Technologies Used
 Python: for data processing, machine learning, and trading automation
+
 Pandas: for data manipulation and analysis
+
 Scikit-Learn: for machine learning model training and evaluation
+
 Stock Market APIs: for accessing real-time market data
+
 Trading Platform APIs: for automating trading decisions
 
 # Planning
 Here is a rough plan for the development of this project:
 
 Data Collection: Collect and preprocess historical stock market data.
+
 Model Training: Train a machine learning model to predict market trends using the collected data.
+
 Trading Strategy Development: Develop an automated trading strategy based on predicted trends.
+
 Backtesting: Test the trading strategy on historical data to evaluate its performance.
+
 Live Trading: Connect the trading bot to a live trading account and start making trades.
+
 Results Analysis: Log and analyze trading results to refine the model and strategy.
 
 # Data Collection
