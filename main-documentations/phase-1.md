@@ -1,4 +1,4 @@
-#Phase 1: Data Collection and Pre-Processing
+# Phase 1: Data Collection and Pre-Processing
 ## Sub-tasks:
 
 - Research and choose data sources: Research different sources to collect historical market data from, such as financial websites and APIs, and choose the ones that fit your project's needs.
