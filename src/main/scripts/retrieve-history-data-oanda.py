@@ -15,7 +15,7 @@ params = {
 
 # Define API headers
 headers = {
-    'Authorization': 'Bearer',
+    'Authorization': 'Bearer ',
 }
 
 # Send request to API
@@ -25,7 +25,7 @@ response = requests.get(api_endpoint, params=params, headers=headers)
 data = response.json()['candles']
 
 # Open CSV file for writing
-with open('oanda_data.csv', 'w', newline='') as csvfile:
+with open('src/main/test_data/oanda_data.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
 
     # Write header row
@@ -41,7 +41,7 @@ with open('oanda_data.csv', 'w', newline='') as csvfile:
         writer.writerow([time, open_price, high_price, low_price, close_price])
 
 # Read in the CSV file
-df = pd.read_csv('oanda_data.csv')
+df = pd.read_csv('src/main/test_data/oanda_data.csv')
 
 # Convert the 'time' column to a datetime object
 df['time'] = pd.to_datetime(df['time'])
