@@ -2,6 +2,7 @@ import requests
 import csv
 import matplotlib.pyplot as plt
 import pandas as pd
+import mplfinance as mpf
 
 # Define API endpoint
 api_endpoint = 'https://api-fxpractice.oanda.com/v3/instruments/EUR_USD/candles'
@@ -24,14 +25,14 @@ params_1d = {
 
 # Define API headers
 headers = {
-    'Authorization': 'Bearer be51236df75cf7c7cf698dcb7b1cb99a-a535de4d1e7dac37ba93d8d0a48b25ca',
+    'Authorization': 'Bearer',
 }
 
 # Send request to API
 response = requests.get(api_endpoint, params=params_4h, headers=headers)
-
 # Extract data from response
 data = response.json()['candles']
+print(data)
 
 # Open CSV file for writing
 with open('src/main/test_data/oanda_data_4h.csv', 'w', newline='') as csvfile:
@@ -50,17 +51,23 @@ with open('src/main/test_data/oanda_data_4h.csv', 'w', newline='') as csvfile:
         writer.writerow([time, open_price, high_price, low_price, close_price])
 
 # Read in the CSV file
-df = pd.read_csv('src/main/test_data/oanda_data_4h.csv')
+# df = pd.read_csv('src/main/test_data/oanda_data_4h.csv')
 
-# Convert the 'time' column to a datetime object
-df['time'] = pd.to_datetime(df['time'])
+# # Convert the 'time' column to a datetime object
+# df['time'] = pd.to_datetime(df['time'])
 
-# Create the chart
-fig, ax = plt.subplots()
-ax.plot(df['time'], df['close'])
-ax.set_xlabel('Time')
-ax.set_ylabel('Close Price')
-ax.set_title('EUR/USD Historical Close Prices')
+# # Create the chart
+# fig, ax = plt.subplots()
+# ax.plot(df['time'], df['close'])
+# ax.set_xlabel('Time')
+# ax.set_ylabel('Close Price')
+# ax.set_title('EUR/USD Historical Close Prices')
 
-# Show the chart
+# Show the candle chart
 plt.show()
+
+# Read the csv file
+df = pd.read_csv('src/main/test_data/oanda_data_4h.csv', index_col=0, parse_dates=True)
+
+# Create the candlestick chart
+mpf.plot(df, type='candle', volume=False, show_nontrading=True)
