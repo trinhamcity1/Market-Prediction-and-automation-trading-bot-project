@@ -5,7 +5,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 
 # Load data from CSV file
-data = pd.read_csv('src/main/test_data/oanda_data.csv')
+data = pd.read_csv('src/main/test_data/oanda_data_4h.csv')
 
 # Preprocess data
 x = data.iloc[:, 1:-1].values

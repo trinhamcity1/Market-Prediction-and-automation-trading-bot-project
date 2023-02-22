@@ -7,7 +7,16 @@ import pandas as pd
 api_endpoint = 'https://api-fxpractice.oanda.com/v3/instruments/EUR_USD/candles'
 
 # Define API parameters
-params = {
+
+# 4H chart
+params_4h = {
+    'granularity': 'H4',
+    'count': 24,
+    'price': 'M'
+}
+
+# 1 day chart
+params_1d = {
     'granularity': 'D',
     'count': 100,
     'price': 'M',
@@ -15,17 +24,17 @@ params = {
 
 # Define API headers
 headers = {
-    'Authorization': 'Bearer ',
+    'Authorization': 'Bearer be51236df75cf7c7cf698dcb7b1cb99a-a535de4d1e7dac37ba93d8d0a48b25ca',
 }
 
 # Send request to API
-response = requests.get(api_endpoint, params=params, headers=headers)
+response = requests.get(api_endpoint, params=params_4h, headers=headers)
 
 # Extract data from response
 data = response.json()['candles']
 
 # Open CSV file for writing
-with open('src/main/test_data/oanda_data.csv', 'w', newline='') as csvfile:
+with open('src/main/test_data/oanda_data_4h.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
 
     # Write header row
@@ -41,7 +50,7 @@ with open('src/main/test_data/oanda_data.csv', 'w', newline='') as csvfile:
         writer.writerow([time, open_price, high_price, low_price, close_price])
 
 # Read in the CSV file
-df = pd.read_csv('src/main/test_data/oanda_data.csv')
+df = pd.read_csv('src/main/test_data/oanda_data_4h.csv')
 
 # Convert the 'time' column to a datetime object
 df['time'] = pd.to_datetime(df['time'])
